@@ -1,0 +1,93 @@
+header{
+    border-bottom: 2px solid black;
+    background: #FF9966;
+    font-size: 2em;
+    color: #797979;
+    text-align: center;
+    margin: -2%;
+    padding: 35px 20px 25px 20px;
+}
+
+
+.form{
+    font-family: 'Open Sans Condensed', arial, sans;
+    width: 60%;
+    padding: 20px;
+    background: #FFFFFF;
+    margin: 30px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+}
+
+.form h3{
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #797979;
+    font-size: 16px;
+    font-weight: 100;
+    padding: 20px;
+    text-align: center;
+}
+
+#username, #password
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 25px;
+}
+
+#submit
+{
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#submit:hover {
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
+}
+
+#wait{
+    display: none;
+}
+
+.loading
+{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border: 8px solid #A9A9A9;
+	border-right-color: transparent;
+	border-radius: 50%;
+    box-shadow: 0 0 25px 2px #eee;
+    animation: spin 2s linear infinite;
+    margin: 15% 46%;
+}
+@keyframes spin
+{
+	from { transform: rotate(0deg);   opacity: 0.2; }
+	50%  { transform: rotate(180deg); opacity: 1.0; }
+	to   { transform: rotate(360deg); opacity: 0.2; }
+}
