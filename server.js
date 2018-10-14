@@ -15,11 +15,17 @@ var urlencodedParser = bodyParser.urlencoded({
 app.get('/', function (req, res) {
     res.sendFile(__dirname + "/" + "index.html");
 })
-var ExpressBrute = require('express-brute');
-var store = new ExpressBrute.MemoryStore(); // stores state locally, don't use this in production
-var bruteforce = new ExpressBrute(store);
-var permutations = require('permutation');
 
+// prevent brute force attacks - throws 429 error by default 
+/* const rateLimit = require("express-rate-limit");
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 50 // limit each IP to 50 requests per windowMs
+});
+app.use('/process_post', limiter); */
+
+
+var permutations = require('permutation');
 app.post('/process_post', urlencodedParser, function (req, res) {
     // brute force tries are based on the permutations of the string entered as password
     var arr = permutations(req.body.password);
@@ -36,12 +42,11 @@ app.post('/process_post', urlencodedParser, function (req, res) {
 
 function sendRequest(req, res) {
 
-    bruteforce.prevent, // error 429 if we hit this route too often
     password = "aba";
     pool.query('SELECT username, password FROM users', (error, result) => {
         if (error) throw error;
         password = result[0].password;
-       return password;
+        return password;
     });
 
     // check if any of the permutations is identical to the password
